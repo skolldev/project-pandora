@@ -11,6 +11,7 @@ import { AppComponent } from "./app.component";
 import { GlobalErrorHandler } from "./services/global-error-handler";
 import { HttpLoggingInterceptor } from "./services/http-logging.interceptor";
 import { SharedModule } from "./shared/shared.module";
+import { CardComponent } from './shows/card/card.component';
 
 const HTTP_INTERCEPTOR_PROVIDERS: Provider[] = [
   { provide: HTTP_INTERCEPTORS, useClass: HttpLoggingInterceptor, multi: true },
@@ -37,7 +38,7 @@ const PROVIDERS: any[] = [
   { provide: ErrorHandler, useClass: GlobalErrorHandler },
 ];
 @NgModule({
-  declarations: [...COMPONENTS],
+  declarations: [...COMPONENTS, CardComponent],
   imports: [...MODULES, SharedModule],
   providers: [...PROVIDERS, ...HTTP_INTERCEPTOR_PROVIDERS],
   bootstrap: [AppComponent],
